@@ -1,0 +1,24 @@
+{
+  "name": "desafui-dois-pontos-programacao",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carlosrcarletto/desafui-dois-pontos-programacao.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/carlosrcarletto/desafui-dois-pontos-programacao/issues"
+  },
+  "homepage": "https://github.com/carlosrcarletto/desafui-dois-pontos-programacao#readme"
+}
