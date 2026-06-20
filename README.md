@@ -25,6 +25,8 @@ Disparada manualmente através do botão **"Run workflow"** na aba Actions do Gi
 Configurada para executar testes automaticamente em períodos definidos.
 * **Gatilho:** Configurada com um agendador Cron (`schedule`) para rodar **a cada 5 minutos** (`*/5 * * * *`).
 * **Garantia de Integridade:** Útil para monitorar a saúde do repositório de forma contínua e periódica.
+* **Feedback Imediato:** Contém a mesma configuração robusta de relatórios visuais e interativos da pipeline manual para garantir que nenhuma alteração nova quebre os testes existentes.
+
 
 #### 🔄 3. Execução Pós-Deploy / Contínua (`03-post-deploy-exec.yaml`)
 Disparada de forma automatizada e contínua.
