@@ -9,6 +9,9 @@ jobs:
   test:
     name: Executar Testes Unitários
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write # Necessário para criar a aba interativa de relatórios no GitHub
 
     steps:
       - name: Obter código do repositório
@@ -19,5 +22,26 @@ jobs:
         with:
           node-version: 24
 
-      - name: Executar os Testes
-        run: npm test
+      - name: Executar os Testes com Geração de Relatório
+        run: node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=junit --test-reporter-destination=report.xml
+
+      - name: Publicar Relatório de Testes (Artefato)
+        uses: actions/upload-artifact@v4
+        if: always() # Garante que o relatório seja publicado mesmo se algum teste falhar
+        with:
+          name: relatorio-testes-unitarios-agendado
+          path: report.xml
+
+      - name: Criar Relatório Interativo na Pipeline (Aba Test Report)
+        uses: dorny/test-reporter@v1
+        if: always() # Garante que a aba seja criada mesmo se algum teste falhar
+        with:
+          name: Relatório de Testes Unitários (Agendado)
+          path: report.xml
+          reporter: java-junit
+
+      - name: Publicar Resumo Visual na Pipeline (Job Summary)
+        uses: test-summary/action@v2
+        if: always()
+        with:
+          paths: "report.xml"
