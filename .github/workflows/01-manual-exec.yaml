@@ -20,9 +20,15 @@ jobs:
       - name: Executar os Testes com Geração de Relatório
         run: node --test --test-reporter=spec --test-reporter-destination=stdout --test-reporter=junit --test-reporter-destination=report.xml
 
-      - name: Publicar Relatório de Testes
+      - name: Publicar Relatório de Testes (Artefato)
         uses: actions/upload-artifact@v4
         if: always() # Garante que o relatório seja publicado mesmo se algum teste falhar
         with:
           name: relatorio-testes-unitarios
           path: report.xml
+
+      - name: Publicar Resumo Visual na Pipeline (Job Summary)
+        uses: test-summary/action@v2
+        if: always()
+        with:
+          paths: "report.xml"
