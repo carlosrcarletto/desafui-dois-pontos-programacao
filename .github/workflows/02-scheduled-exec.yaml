@@ -2,7 +2,7 @@ name: Execução Agendada de Testes Unitários
 
 on:
   schedule:
-    - cron: '0 0 21 6 *' # Executa no dia 21 de Junho às 00:00 UTC (Equivale a 20 de Junho às 21:00 no Horário de Brasília)
+    - cron: '0 23 20 6 *' # Executa no dia 20 de Junho às 23:00 UTC (Equivale a 20 de Junho às 20:00 no Horário de Brasília)
   workflow_dispatch: # Mantém a opção de executar manualmente para testes
 
 jobs:
