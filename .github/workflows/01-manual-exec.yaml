@@ -1,0 +1,22 @@
+name: Execução Manual de Testes Unitários
+
+on:
+  workflow_dispatch: # Permite a execução manual através da aba Actions do GitHub
+
+jobs:
+  test:
+    name: Executar Testes Unitários
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Obter código do repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Executar os Testes
+        run: npm test

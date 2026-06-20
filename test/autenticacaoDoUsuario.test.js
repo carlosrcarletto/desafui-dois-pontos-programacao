@@ -1,5 +1,6 @@
 import { fazerLogin } from "../src/autenticacaoDoUsuario.js";
 import assert from "node:assert";
+import { describe, it } from "node:test";
 
 describe("Teste do Login", function () {
   it("Validar que o login com email e senha correto e expirado false esta logando com sucesso", function () {
