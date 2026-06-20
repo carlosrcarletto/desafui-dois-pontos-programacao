@@ -6,7 +6,7 @@ on:
 
 jobs:
   test:
-    name: Executar Testes Unitários
+    name: Executar Testes Unitarios
     runs-on: ubuntu-latest
     permissions:
       contents: read
