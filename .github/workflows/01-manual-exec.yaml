@@ -7,6 +7,9 @@ jobs:
   test:
     name: Executar Testes Unitários
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      checks: write # Necessário para criar a aba interativa de relatórios
 
     steps:
       - name: Obter código do repositório
@@ -26,6 +29,14 @@ jobs:
         with:
           name: relatorio-testes-unitarios
           path: report.xml
+
+      - name: Criar Relatório Interativo na Pipeline (Aba Test Report)
+        uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Relatório de Testes Unitários
+          path: report.xml
+          reporter: java-junit
 
       - name: Publicar Resumo Visual na Pipeline (Job Summary)
         uses: test-summary/action@v2
