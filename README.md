@@ -23,7 +23,7 @@ Disparada manualmente através do botão **"Run workflow"** na aba Actions do Gi
 
 #### ⏱️ 2. Execução Agendada (`02-scheduled-exec.yaml`)
 Configurada para executar testes automaticamente em períodos definidos.
-* **Gatilho:** Configurada com um agendador Cron (`schedule`) para rodar **a cada 5 minutos** (`*/5 * * * *`).
+* **Gatilho:** Configurada com um agendador Cron (`schedule`) para rodar **no dia 20/06/2026 às 20:00 no Horário do Brasil** (`0 23 20 6 *` em UTC).
 * **Garantia de Integridade:** Útil para monitorar a saúde do repositório de forma contínua e periódica.
 * **Feedback Imediato:** Contém a mesma configuração robusta de relatórios visuais e interativos da pipeline manual para garantir que nenhuma alteração nova quebre os testes existentes.
 
